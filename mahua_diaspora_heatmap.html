@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position:fixed; bottom:30px; left:30px; z-index:1000;
+     background:rgba(0,0,0,0.8); color:white; padding:15px;
+     border-radius:8px; font-family:Arial; font-size:13px;">
+<b>🎯 Mahua Market Entry — Hot Zones</b><br><br>
+<span style="color:#FF0000;">●</span> Score 80+ : Highest Priority<br>
+<span style="color:#FF6600;">●</span> Score 65–79 : High Priority<br>
+<span style="color:#FFAA00;">●</span> Score 50–64 : Medium Priority<br>
+<span style="color:#00AAFF;">●</span> Score below 50 : Watch List<br><br>
+<i>Circle size = Indian population density</i>
+</div>
+    
+            <div class="folium-map" id="map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6 = L.map(
+                "map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6",
+                {
+                    center: [39.5, -98.35],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 4,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_24aa86a26a6e58cacac79e12911a380a = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_24aa86a26a6e58cacac79e12911a380a.addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var circle_marker_64122aeb5f7ef6f5369ef52e6882f26b = L.circleMarker(
+                [40.7128, -74.006],
+                {"bubblingMouseEvents": true, "color": "#FF0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FF0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 63, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_20017b57f8bae36a871c0bb542944e2c = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_7b494e62ae75f9ed0c298dc11b95f743 = $(`<div id="html_7b494e62ae75f9ed0c298dc11b95f743" style="width: 100.0%; height: 100.0%;"><b>New York, NY</b><br>             Indian Population: 95,000<br>             Avg Household Income: $108,000<br>             🎯 Hot Zone Score: 89.8</div>`)[0];
+                popup_20017b57f8bae36a871c0bb542944e2c.setContent(html_7b494e62ae75f9ed0c298dc11b95f743);
+            
+        
+
+        circle_marker_64122aeb5f7ef6f5369ef52e6882f26b.bindPopup(popup_20017b57f8bae36a871c0bb542944e2c)
+        ;
+
+        
+    
+    
+            circle_marker_64122aeb5f7ef6f5369ef52e6882f26b.bindTooltip(
+                `<div>
+                     New York, NY | Score: 89.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_31c4cc06dcbcaa4a2083985198d8214f = L.marker(
+                [40.7128, -74.006],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_229939b1bf63613f206a57adb7c10002 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eNew York\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_31c4cc06dcbcaa4a2083985198d8214f.setIcon(div_icon_229939b1bf63613f206a57adb7c10002);
+            
+    
+            var circle_marker_22c032bab6cce28f96897d933db477b8 = L.circleMarker(
+                [37.3382, -121.8863],
+                {"bubblingMouseEvents": true, "color": "#FF0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FF0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 50, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_d345ca9f72b8f77d6bc9a16fa1958814 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_fff561e99ec2834d13790835bb26258f = $(`<div id="html_fff561e99ec2834d13790835bb26258f" style="width: 100.0%; height: 100.0%;"><b>San Jose, CA</b><br>             Indian Population: 75,000<br>             Avg Household Income: $145,000<br>             🎯 Hot Zone Score: 87.4</div>`)[0];
+                popup_d345ca9f72b8f77d6bc9a16fa1958814.setContent(html_fff561e99ec2834d13790835bb26258f);
+            
+        
+
+        circle_marker_22c032bab6cce28f96897d933db477b8.bindPopup(popup_d345ca9f72b8f77d6bc9a16fa1958814)
+        ;
+
+        
+    
+    
+            circle_marker_22c032bab6cce28f96897d933db477b8.bindTooltip(
+                `<div>
+                     San Jose, CA | Score: 87.4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b14a9c3efef992566241ba7d0ddac1b3 = L.marker(
+                [37.3382, -121.8863],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_1dab2f554d4868acb5cc4d665aba79d5 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eSan Jose\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_b14a9c3efef992566241ba7d0ddac1b3.setIcon(div_icon_1dab2f554d4868acb5cc4d665aba79d5);
+            
+    
+            var circle_marker_b6d584b30d2adf4dc24990ed1c2fa874 = L.circleMarker(
+                [34.0522, -118.2437],
+                {"bubblingMouseEvents": true, "color": "#FF0000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FF0000", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 56, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_1301ad85181fb6eb877137f23a2da745 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_6f6b00abee70248d1331a96073bbeb17 = $(`<div id="html_6f6b00abee70248d1331a96073bbeb17" style="width: 100.0%; height: 100.0%;"><b>Los Angeles, CA</b><br>             Indian Population: 85,000<br>             Avg Household Income: $105,000<br>             🎯 Hot Zone Score: 82.6</div>`)[0];
+                popup_1301ad85181fb6eb877137f23a2da745.setContent(html_6f6b00abee70248d1331a96073bbeb17);
+            
+        
+
+        circle_marker_b6d584b30d2adf4dc24990ed1c2fa874.bindPopup(popup_1301ad85181fb6eb877137f23a2da745)
+        ;
+
+        
+    
+    
+            circle_marker_b6d584b30d2adf4dc24990ed1c2fa874.bindTooltip(
+                `<div>
+                     Los Angeles, CA | Score: 82.6
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_4f9e7d72c40fb30b3e7caeabf746f873 = L.marker(
+                [34.0522, -118.2437],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_19aa4d22e65586290fddf2d2961608ef = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eLos Angeles\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_4f9e7d72c40fb30b3e7caeabf746f873.setIcon(div_icon_19aa4d22e65586290fddf2d2961608ef);
+            
+    
+            var circle_marker_dfc3e0ea3cc3cbee0541fab16a1b937f = L.circleMarker(
+                [29.7604, -95.3698],
+                {"bubblingMouseEvents": true, "color": "#FF6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FF6600", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 45, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_456898cf654302482a7e8e4181d517b1 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_25f9531626b3ada4e58b779c3f0e84a9 = $(`<div id="html_25f9531626b3ada4e58b779c3f0e84a9" style="width: 100.0%; height: 100.0%;"><b>Houston, TX</b><br>             Indian Population: 68,000<br>             Avg Household Income: $132,000<br>             🎯 Hot Zone Score: 79.4</div>`)[0];
+                popup_456898cf654302482a7e8e4181d517b1.setContent(html_25f9531626b3ada4e58b779c3f0e84a9);
+            
+        
+
+        circle_marker_dfc3e0ea3cc3cbee0541fab16a1b937f.bindPopup(popup_456898cf654302482a7e8e4181d517b1)
+        ;
+
+        
+    
+    
+            circle_marker_dfc3e0ea3cc3cbee0541fab16a1b937f.bindTooltip(
+                `<div>
+                     Houston, TX | Score: 79.4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_95f9090178f66a3285cfcd24bceda8bd = L.marker(
+                [29.7604, -95.3698],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_01011eae0f5b30bd016d99427db4725a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eHouston\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_95f9090178f66a3285cfcd24bceda8bd.setIcon(div_icon_01011eae0f5b30bd016d99427db4725a);
+            
+    
+            var circle_marker_ded01c203dd654dc9099a993d2f92a6f = L.circleMarker(
+                [40.5188, -74.4121],
+                {"bubblingMouseEvents": true, "color": "#FF6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FF6600", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 36, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_d91e8b2907240f321d259683e4000248 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_d5ea6abcaefd26d2eda3a337bedf089b = $(`<div id="html_d5ea6abcaefd26d2eda3a337bedf089b" style="width: 100.0%; height: 100.0%;"><b>Edison, NJ</b><br>             Indian Population: 55,000<br>             Avg Household Income: $125,000<br>             🎯 Hot Zone Score: 69.2</div>`)[0];
+                popup_d91e8b2907240f321d259683e4000248.setContent(html_d5ea6abcaefd26d2eda3a337bedf089b);
+            
+        
+
+        circle_marker_ded01c203dd654dc9099a993d2f92a6f.bindPopup(popup_d91e8b2907240f321d259683e4000248)
+        ;
+
+        
+    
+    
+            circle_marker_ded01c203dd654dc9099a993d2f92a6f.bindTooltip(
+                `<div>
+                     Edison, NJ | Score: 69.2
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d27a390c0c75c87d923d565507427fa7 = L.marker(
+                [40.5188, -74.4121],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_335be0780eda35a98e7f9a761f693613 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eEdison\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_d27a390c0c75c87d923d565507427fa7.setIcon(div_icon_335be0780eda35a98e7f9a761f693613);
+            
+    
+            var circle_marker_15f365491eaf9a9b3c9532c6ba3b63de = L.circleMarker(
+                [32.7767, -96.797],
+                {"bubblingMouseEvents": true, "color": "#FF6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FF6600", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 33, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_202499f331311f3807395298d2e31152 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_b7840b3997a2bc7b4870e1977f0bf2f3 = $(`<div id="html_b7840b3997a2bc7b4870e1977f0bf2f3" style="width: 100.0%; height: 100.0%;"><b>Dallas, TX</b><br>             Indian Population: 50,000<br>             Avg Household Income: $128,000<br>             🎯 Hot Zone Score: 66.9</div>`)[0];
+                popup_202499f331311f3807395298d2e31152.setContent(html_b7840b3997a2bc7b4870e1977f0bf2f3);
+            
+        
+
+        circle_marker_15f365491eaf9a9b3c9532c6ba3b63de.bindPopup(popup_202499f331311f3807395298d2e31152)
+        ;
+
+        
+    
+    
+            circle_marker_15f365491eaf9a9b3c9532c6ba3b63de.bindTooltip(
+                `<div>
+                     Dallas, TX | Score: 66.9
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_ea3ea870750d353e019a0305cf989d0e = L.marker(
+                [32.7767, -96.797],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_da9cf99b368508420484997927f977d9 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eDallas\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_ea3ea870750d353e019a0305cf989d0e.setIcon(div_icon_da9cf99b368508420484997927f977d9);
+            
+    
+            var circle_marker_75908ccdab61aa82ce85df3758d4a7d2 = L.circleMarker(
+                [37.5485, -121.9886],
+                {"bubblingMouseEvents": true, "color": "#FF6600", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FF6600", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 30, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_6386cce372e77c0c67f6f46723b52163 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_65dfb83cac2b2d3d9b96e86154d97b00 = $(`<div id="html_65dfb83cac2b2d3d9b96e86154d97b00" style="width: 100.0%; height: 100.0%;"><b>Fremont, CA</b><br>             Indian Population: 45,000<br>             Avg Household Income: $138,000<br>             🎯 Hot Zone Score: 66.5</div>`)[0];
+                popup_6386cce372e77c0c67f6f46723b52163.setContent(html_65dfb83cac2b2d3d9b96e86154d97b00);
+            
+        
+
+        circle_marker_75908ccdab61aa82ce85df3758d4a7d2.bindPopup(popup_6386cce372e77c0c67f6f46723b52163)
+        ;
+
+        
+    
+    
+            circle_marker_75908ccdab61aa82ce85df3758d4a7d2.bindTooltip(
+                `<div>
+                     Fremont, CA | Score: 66.5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_62ec76a161715685aa48bf8be3d69383 = L.marker(
+                [37.5485, -121.9886],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_9e3752d3554b7b7f14f9af966eac31e5 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eFremont\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_62ec76a161715685aa48bf8be3d69383.setIcon(div_icon_9e3752d3554b7b7f14f9af966eac31e5);
+            
+    
+            var circle_marker_9f966ea6cc2dbe2059c35f58360cd89b = L.circleMarker(
+                [47.6062, -122.3321],
+                {"bubblingMouseEvents": true, "color": "#FFAA00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFAA00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 26, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_dbe124a5781b04e4fdafc36d5ebf6f3c = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_2e60895fcb47e61cf42f89b3f3063fe4 = $(`<div id="html_2e60895fcb47e61cf42f89b3f3063fe4" style="width: 100.0%; height: 100.0%;"><b>Seattle, WA</b><br>             Indian Population: 40,000<br>             Avg Household Income: $140,000<br>             🎯 Hot Zone Score: 63.9</div>`)[0];
+                popup_dbe124a5781b04e4fdafc36d5ebf6f3c.setContent(html_2e60895fcb47e61cf42f89b3f3063fe4);
+            
+        
+
+        circle_marker_9f966ea6cc2dbe2059c35f58360cd89b.bindPopup(popup_dbe124a5781b04e4fdafc36d5ebf6f3c)
+        ;
+
+        
+    
+    
+            circle_marker_9f966ea6cc2dbe2059c35f58360cd89b.bindTooltip(
+                `<div>
+                     Seattle, WA | Score: 63.9
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d3a2c73a7cf43bcd59a409729a61ce05 = L.marker(
+                [47.6062, -122.3321],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_0c0f20105ac710f8d8ed65d0935f08f8 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eSeattle\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_d3a2c73a7cf43bcd59a409729a61ce05.setIcon(div_icon_0c0f20105ac710f8d8ed65d0935f08f8);
+            
+    
+            var circle_marker_a5548fc2c913d94959a79104c2c79aae = L.circleMarker(
+                [30.2672, -97.7431],
+                {"bubblingMouseEvents": true, "color": "#FFAA00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFAA00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_915c9dd82517d77ed6d64ee984e6ba2a = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_d8b5029b921ca9c96e137384b480465f = $(`<div id="html_d8b5029b921ca9c96e137384b480465f" style="width: 100.0%; height: 100.0%;"><b>Austin, TX</b><br>             Indian Population: 30,000<br>             Avg Household Income: $142,000<br>             🎯 Hot Zone Score: 58.1</div>`)[0];
+                popup_915c9dd82517d77ed6d64ee984e6ba2a.setContent(html_d8b5029b921ca9c96e137384b480465f);
+            
+        
+
+        circle_marker_a5548fc2c913d94959a79104c2c79aae.bindPopup(popup_915c9dd82517d77ed6d64ee984e6ba2a)
+        ;
+
+        
+    
+    
+            circle_marker_a5548fc2c913d94959a79104c2c79aae.bindTooltip(
+                `<div>
+                     Austin, TX | Score: 58.1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_fd0e0a1149dee2b6ea863a48d821d28b = L.marker(
+                [30.2672, -97.7431],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_ea2300d563155223933bc90bec8a1a50 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eAustin\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_fd0e0a1149dee2b6ea863a48d821d28b.setIcon(div_icon_ea2300d563155223933bc90bec8a1a50);
+            
+    
+            var circle_marker_29cca42755e3c485f4912e05d547e09a = L.circleMarker(
+                [33.749, -84.388],
+                {"bubblingMouseEvents": true, "color": "#FFAA00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFAA00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_66cbe4d3d667507fba4da22527d3d556 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_22295aefac120108353484e5d4669908 = $(`<div id="html_22295aefac120108353484e5d4669908" style="width: 100.0%; height: 100.0%;"><b>Atlanta, GA</b><br>             Indian Population: 38,000<br>             Avg Household Income: $122,000<br>             🎯 Hot Zone Score: 57.7</div>`)[0];
+                popup_66cbe4d3d667507fba4da22527d3d556.setContent(html_22295aefac120108353484e5d4669908);
+            
+        
+
+        circle_marker_29cca42755e3c485f4912e05d547e09a.bindPopup(popup_66cbe4d3d667507fba4da22527d3d556)
+        ;
+
+        
+    
+    
+            circle_marker_29cca42755e3c485f4912e05d547e09a.bindTooltip(
+                `<div>
+                     Atlanta, GA | Score: 57.7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e6aa19099bb9cecea2cd0ece88d43daa = L.marker(
+                [33.749, -84.388],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_7fb5407f3ea7a22402b0882a428af7ee = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eAtlanta\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_e6aa19099bb9cecea2cd0ece88d43daa.setIcon(div_icon_7fb5407f3ea7a22402b0882a428af7ee);
+            
+    
+            var circle_marker_ebe0fe4c860548bd13d186a236436dcd = L.circleMarker(
+                [38.9072, -77.0369],
+                {"bubblingMouseEvents": true, "color": "#FFAA00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFAA00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_8f84334527e22dc47e2c74636f9fd338 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_65e80c94f0f46451846427ff20179030 = $(`<div id="html_65e80c94f0f46451846427ff20179030" style="width: 100.0%; height: 100.0%;"><b>Washington DC</b><br>             Indian Population: 32,000<br>             Avg Household Income: $135,000<br>             🎯 Hot Zone Score: 57.5</div>`)[0];
+                popup_8f84334527e22dc47e2c74636f9fd338.setContent(html_65e80c94f0f46451846427ff20179030);
+            
+        
+
+        circle_marker_ebe0fe4c860548bd13d186a236436dcd.bindPopup(popup_8f84334527e22dc47e2c74636f9fd338)
+        ;
+
+        
+    
+    
+            circle_marker_ebe0fe4c860548bd13d186a236436dcd.bindTooltip(
+                `<div>
+                     Washington DC | Score: 57.5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_58d2fb8c05d3e47a25f8282bcdf4c80d = L.marker(
+                [38.9072, -77.0369],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_19d02d32795ca6c800c1ecc56af6671a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eWashington DC\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_58d2fb8c05d3e47a25f8282bcdf4c80d.setIcon(div_icon_19d02d32795ca6c800c1ecc56af6671a);
+            
+    
+            var circle_marker_5da1aac16d3f0206782deaaeee5dd418 = L.circleMarker(
+                [41.8781, -87.6298],
+                {"bubblingMouseEvents": true, "color": "#FFAA00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFAA00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 28, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_8345e74194edc971108c0e377be86cbb = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_3398a39a95693ff90a2bb6934c89e2c0 = $(`<div id="html_3398a39a95693ff90a2bb6934c89e2c0" style="width: 100.0%; height: 100.0%;"><b>Chicago, IL</b><br>             Indian Population: 42,000<br>             Avg Household Income: $112,000<br>             🎯 Hot Zone Score: 57.4</div>`)[0];
+                popup_8345e74194edc971108c0e377be86cbb.setContent(html_3398a39a95693ff90a2bb6934c89e2c0);
+            
+        
+
+        circle_marker_5da1aac16d3f0206782deaaeee5dd418.bindPopup(popup_8345e74194edc971108c0e377be86cbb)
+        ;
+
+        
+    
+    
+            circle_marker_5da1aac16d3f0206782deaaeee5dd418.bindTooltip(
+                `<div>
+                     Chicago, IL | Score: 57.4
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_142df821d0186f648b3775ac3cd33375 = L.marker(
+                [41.8781, -87.6298],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_eb3341d6f402b947d5f3d713d8f7f47d = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eChicago\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_142df821d0186f648b3775ac3cd33375.setIcon(div_icon_eb3341d6f402b947d5f3d713d8f7f47d);
+            
+    
+            var circle_marker_a56e454813ca7ac36968fb66a8231a79 = L.circleMarker(
+                [40.7178, -74.0431],
+                {"bubblingMouseEvents": true, "color": "#FFAA00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFAA00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 23, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_7ef35f9394c924bfa6dbacbd0311777d = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_80f6a2b553a20726546b675aa6d36ad5 = $(`<div id="html_80f6a2b553a20726546b675aa6d36ad5" style="width: 100.0%; height: 100.0%;"><b>Jersey City, NJ</b><br>             Indian Population: 35,000<br>             Avg Household Income: $118,000<br>             🎯 Hot Zone Score: 54.7</div>`)[0];
+                popup_7ef35f9394c924bfa6dbacbd0311777d.setContent(html_80f6a2b553a20726546b675aa6d36ad5);
+            
+        
+
+        circle_marker_a56e454813ca7ac36968fb66a8231a79.bindPopup(popup_7ef35f9394c924bfa6dbacbd0311777d)
+        ;
+
+        
+    
+    
+            circle_marker_a56e454813ca7ac36968fb66a8231a79.bindTooltip(
+                `<div>
+                     Jersey City, NJ | Score: 54.7
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b4984ce03c0950b5410d81ca203bfa88 = L.marker(
+                [40.7178, -74.0431],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_07a228563e49d7fe1b43eaf1e6e41f04 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eJersey City\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_b4984ce03c0950b5410d81ca203bfa88.setIcon(div_icon_07a228563e49d7fe1b43eaf1e6e41f04);
+            
+    
+            var circle_marker_8e3bcb4de27e3d1cb86334787c59d4cd = L.circleMarker(
+                [42.3601, -71.0589],
+                {"bubblingMouseEvents": true, "color": "#FFAA00", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFAA00", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_7009e16d26a8d2410789b046a6fd2332 = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_b0499f6363ffcdd7fd09cd020a943163 = $(`<div id="html_b0499f6363ffcdd7fd09cd020a943163" style="width: 100.0%; height: 100.0%;"><b>Boston, MA</b><br>             Indian Population: 28,000<br>             Avg Household Income: $130,000<br>             🎯 Hot Zone Score: 53.5</div>`)[0];
+                popup_7009e16d26a8d2410789b046a6fd2332.setContent(html_b0499f6363ffcdd7fd09cd020a943163);
+            
+        
+
+        circle_marker_8e3bcb4de27e3d1cb86334787c59d4cd.bindPopup(popup_7009e16d26a8d2410789b046a6fd2332)
+        ;
+
+        
+    
+    
+            circle_marker_8e3bcb4de27e3d1cb86334787c59d4cd.bindTooltip(
+                `<div>
+                     Boston, MA | Score: 53.5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1a3ab7f4adbabcb790c9cd93dffded20 = L.marker(
+                [42.3601, -71.0589],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_28c03104ad58e2209aeeba299b2fb113 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003eBoston\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_1a3ab7f4adbabcb790c9cd93dffded20.setIcon(div_icon_28c03104ad58e2209aeeba299b2fb113);
+            
+    
+            var circle_marker_e90ea018d2a07855611325bffcefe1cb = L.circleMarker(
+                [39.9526, -75.1652],
+                {"bubblingMouseEvents": true, "color": "#00AAFF", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#00AAFF", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16, "stroke": true, "weight": 3}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+        var popup_48fecf4c5ab3fa12694955ce57d0c8bf = L.popup({
+  "maxWidth": 220,
+});
+
+        
+            
+                var html_b7d93866f0c2177c5d96cb962ab54854 = $(`<div id="html_b7d93866f0c2177c5d96cb962ab54854" style="width: 100.0%; height: 100.0%;"><b>Philadelphia, PA</b><br>             Indian Population: 25,000<br>             Avg Household Income: $98,000<br>             🎯 Hot Zone Score: 42.8</div>`)[0];
+                popup_48fecf4c5ab3fa12694955ce57d0c8bf.setContent(html_b7d93866f0c2177c5d96cb962ab54854);
+            
+        
+
+        circle_marker_e90ea018d2a07855611325bffcefe1cb.bindPopup(popup_48fecf4c5ab3fa12694955ce57d0c8bf)
+        ;
+
+        
+    
+    
+            circle_marker_e90ea018d2a07855611325bffcefe1cb.bindTooltip(
+                `<div>
+                     Philadelphia, PA | Score: 42.8
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_cb4220f41e783faa8eb1c7ed0758ab23 = L.marker(
+                [39.9526, -75.1652],
+                {
+}
+            ).addTo(map_2ff8f1f04fdcdec7c3b8d69a2fa9fef6);
+        
+    
+            var div_icon_aba177f6ef21a779732abe71e636eaf1 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:9px; color:white; font-weight:bold;\"\u003ePhiladelphia\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+                marker_cb4220f41e783faa8eb1c7ed0758ab23.setIcon(div_icon_aba177f6ef21a779732abe71e636eaf1);
+            
+</script>
+</html>
